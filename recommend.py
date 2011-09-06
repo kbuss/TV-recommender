@@ -11,7 +11,8 @@ import urllib2
 from BeautifulSoup import BeautifulSoup
 
 ################## UPDATE THESE FIELDS ####
-filename = "/home/user/recommendations.txt"
+#filename = "/home/user/recommendations.txt"
+filename = "recommendations.txt"
 unwanted_titles = ['CSI: Miami','The Apprentice',] #list shows you will never want
 unwanted_channels = ['Sky2', 'Watch', 'Sky Living, HD', 'Sky Premiere', 'Sky Atlantic', 'Sky Arts 1, HD'] #list channels you don't receive
 rt_commented = "false" #change this value to true to comment out the radiotimes sugggestions
@@ -50,14 +51,16 @@ try:
 					else:
 						text = "Show: "+ title 
 					record.write("\n%s" %(text))
-					describe = "#" + description
+					describe = "#" 
+					if description != None:
+						describe += description
 					record.write("\n%s" %(describe))
 				else:
 					unwanted.append(title)
 			else:
 				unwanted.append(title)				
 		i = (i+1)
-except doc.URLError:
+except urllib2.URLError:
     print "Error opening RadioTimes website"
 
 minstars = minstars - 1
