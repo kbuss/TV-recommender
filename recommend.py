@@ -80,7 +80,10 @@ if include_films == "true":
 			titles.append(title)
 			stars = (item.find('dd')).string
 			starrate = "# Stars:" + stars
-			stars = int(stars)
+			try:
+				stars = int(stars)
+			except:
+				stars = 1
 			
 			if (stars>minstars):
 				channel = (item.find("dd", "channel")).string			
