@@ -42,7 +42,7 @@ try:
 			titles.append(title)
 			channel = (item.find('dd')).string
 			description = (item.find('p')).string
-			if not title in unwanted_titles:
+			if not title.upper() in (name.upper() for name in unwanted_titles):
 				if not channel in unwanted_channels:
 					if rt_commented == "true":
 						text = "#Show: "+title
@@ -88,7 +88,7 @@ if include_films == "true":
 			if (stars>minstars):
 				channel = (item.find("dd", "channel")).string			
 				description = (item.find('p')).string
-				if not title in unwanted_titles:
+				if not title.upper() in (name.upper() for name in unwanted_titles):
 					if not channel in unwanted_channels:
 						if rt_commented == "true":
 							text = "# "+title
