@@ -62,5 +62,3 @@ Add the recommend.py to your cron file:
 crontab -e 
 0 6 * * * python /home/user/recommend.py
 This would run at 6am every day. Leave a few hours between running this and running TVWish so you can check the file first and remove anything you don't want before they are set up to record.
-
-www.kbuss.co.uk
